@@ -8,10 +8,10 @@ const lowerCaseTypes = jsTypes.map(type => type.toLowerCase());
  * @param {Stirng} type - type to verify
  * @return {Boolean} - type is a JS type
  */
-export default function isJsType(type) {
+module.exports = function isJsType(type) {
   if (typeof type !== 'string') {
     throw new TypeError('Expected type to be a string');
   }
 
   return lowerCaseTypes.indexOf(type.toLowerCase()) > -1;
-}
+};
