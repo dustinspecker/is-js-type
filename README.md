@@ -5,7 +5,7 @@
 
 > Is string a JS Type
 
-**Uses [Sindre Sorhus](https://github.com/sindresorhus)' [js-types](https://github.com/sindresorhus/js-types)
+**Uses [Sindre Sorhus](https://github.com/sindresorhus)' [js-types](https://github.com/sindresorhus/js-types)**
 
 ## Install
 ```
