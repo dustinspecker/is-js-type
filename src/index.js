@@ -1,7 +1,7 @@
-'use strict';
-import jsTypes from 'js-types';
+'use strict'
+import jsTypes from 'js-types'
 
-const lowerCaseTypes = jsTypes.map(type => type.toLowerCase());
+const lowerCaseTypes = jsTypes.map(type => type.toLowerCase())
 
 /**
  * Determine if a type is JS type
@@ -10,8 +10,8 @@ const lowerCaseTypes = jsTypes.map(type => type.toLowerCase());
  */
 module.exports = function isJsType(type) {
   if (typeof type !== 'string') {
-    throw new TypeError('Expected type to be a string');
+    throw new TypeError('Expected type to be a string')
   }
 
-  return lowerCaseTypes.indexOf(type.toLowerCase()) > -1;
-};
+  return lowerCaseTypes.indexOf(type.toLowerCase()) > -1
+}
