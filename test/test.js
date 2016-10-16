@@ -19,8 +19,8 @@ describe('is-js-type', () => {
     expect(isJsType('Error')).to.eql(true)
   })
 
-  it('should be case insensitive', () => {
-    expect(isJsType('array')).to.eql(true)
-    expect(isJsType('ARRAY')).to.eql(true)
+  it('should be case sensitive', () => {
+    expect(isJsType('array')).to.eql(false)
+    expect(isJsType('ARRAY')).to.eql(false)
   })
 })

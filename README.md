@@ -17,11 +17,14 @@ npm install --save is-js-type
 ```javascript
 import isJsType from 'is-js-type';
 
-isJsType('array');
+isJsType('Array');
 // => true
 
 isJsType('Error');
 // => true
+
+isJsType('array');
+// => false
 
 isJsType('dog');
 // => false
@@ -31,11 +34,14 @@ isJsType('dog');
 ```javascript
 var isJsType = require('is-js-type');
 
-isJsType('array');
+isJsType('Array');
 // => true
 
 isJsType('Error');
 // => true
+
+isJsType('array');
+// => false
 
 isJsType('dog');
 // => false
