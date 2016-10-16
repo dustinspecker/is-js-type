@@ -5,7 +5,7 @@ const lowerCaseTypes = jsTypes.map(type => type.toLowerCase())
 
 /**
  * Determine if a type is JS type
- * @param {Stirng} type - type to verify
+ * @param {String} type - type to verify
  * @return {Boolean} - type is a JS type
  */
 module.exports = function isJsType(type) {
