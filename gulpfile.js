@@ -1,21 +1,19 @@
 'use strict'
-import babel from 'gulp-babel'
-import babelCompiler from 'babel-core'
-import del from 'del'
-import gulp from 'gulp'
-import gulpIf from 'gulp-if'
-import eslint from 'gulp-eslint'
-import istanbul from 'gulp-istanbul'
-import mocha from 'gulp-mocha'
-import plumber from 'gulp-plumber'
+const del = require('del')
+const gulp = require('gulp')
+const gulpIf = require('gulp-if')
+const eslint = require('gulp-eslint')
+const istanbul = require('gulp-istanbul')
+const mocha = require('gulp-mocha')
+const plumber = require('gulp-plumber')
 
 const cwd = process.cwd()
 
-  , configFiles = './gulpfile.babel.js'
+  , configFiles = './gulpfile.js'
   , srcFiles = 'src/*.js'
   , testFiles = 'test/*.js'
 
-  , destDir = './lib/'
+  , destDir = './src/'
 
 let watching = false
 
@@ -27,15 +25,7 @@ gulp.task('lint', () =>
     .pipe(gulpIf(!watching, eslint.failOnError()))
 )
 
-gulp.task('compile', ['clean', 'lint'], () =>
-  gulp.src(srcFiles)
-    .pipe(babel())
-    .pipe(gulp.dest(destDir))
-)
-
-gulp.task('build', ['compile'])
-
-gulp.task('pre:test', ['build'], () =>
+gulp.task('pre:test', ['lint'], () =>
   gulp.src([`${destDir}**/*.js`])
     .pipe(istanbul())
     .pipe(istanbul.hookRequire())
@@ -44,11 +34,7 @@ gulp.task('pre:test', ['build'], () =>
 gulp.task('test', ['pre:test'], () =>
   gulp.src([testFiles])
     .pipe(gulpIf(watching, plumber()))
-    .pipe(mocha({
-      compilers: {
-        js: babelCompiler
-      }
-    }))
+    .pipe(mocha({}))
     .pipe(istanbul.writeReports())
     .on('end', () => {
       // Something in this task changes the process CWD and causes chaos.
