@@ -4,7 +4,7 @@ const isJsType = require('../src/')
 
 test('should throw TypeError if type is not a string', t => {
   const testFn = () => isJsType()
-  t.throws(testFn, TypeError, /Expected type to be a string/)
+  t.throws(testFn, {instanceOf: TypeError, message: /Expected type to be a string/})
 })
 
 test('should return false for non js types', t => {
