@@ -1,12 +1,11 @@
-'use strict'
-const jsTypes = require('js-types')
+import jsTypes from 'js-types'
 
 /**
  * Determine if a type is JS type
  * @param {String} type - type to verify
  * @return {Boolean} - type is a JS type
  */
-module.exports = function isJsType(type) {
+export default type => {
   if (typeof type !== 'string') {
     throw new TypeError('Expected type to be a string')
   }

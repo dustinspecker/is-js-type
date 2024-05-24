@@ -30,22 +30,5 @@ isJsType('dog');
 // => false
 ```
 
-### ES5
-```javascript
-var isJsType = require('is-js-type');
-
-isJsType('Array');
-// => true
-
-isJsType('Error');
-// => true
-
-isJsType('array');
-// => false
-
-isJsType('dog');
-// => false
-```
-
 ## LICENSE
 MIT © [Dustin Specker](https://github.com/dustinspecker)

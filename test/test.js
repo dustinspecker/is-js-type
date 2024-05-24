@@ -1,6 +1,5 @@
-'use strict'
-const test = require('ava')
-const isJsType = require('../src/')
+import test from 'ava'
+import isJsType from '../src/index.js'
 
 test('should throw TypeError if type is not a string', t => {
   const testFn = () => isJsType()
