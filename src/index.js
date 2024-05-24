@@ -1,5 +1,5 @@
 'use strict'
-import jsTypes from 'js-types'
+const jsTypes = require('js-types')
 
 /**
  * Determine if a type is JS type

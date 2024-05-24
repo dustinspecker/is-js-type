@@ -1,7 +1,7 @@
 /* global describe, it */
 'use strict'
-import {expect} from 'chai'
-import isJsType from '../lib/'
+const {expect} = require('chai')
+const isJsType = require('../src/')
 
 describe('is-js-type', () => {
   it('should throw TypeError if type is not a string', () => {
