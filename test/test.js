@@ -1,26 +1,23 @@
-/* global describe, it */
 'use strict'
-const {expect} = require('chai')
+const test = require('ava')
 const isJsType = require('../src/')
 
-describe('is-js-type', () => {
-  it('should throw TypeError if type is not a string', () => {
-    const test = () => isJsType()
-    expect(test).to.throw(TypeError, /Expected type to be a string/)
-  })
+test('should throw TypeError if type is not a string', t => {
+  const testFn = () => isJsType()
+  t.throws(testFn, TypeError, /Expected type to be a string/)
+})
 
-  it('should return false for non js types', () => {
-    expect(isJsType('gulp')).to.eql(false)
-    expect(isJsType('cat')).to.eql(false)
-  })
+test('should return false for non js types', t => {
+  t.falsy(isJsType('gulp'))
+  t.falsy(isJsType('cat'))
+})
 
-  it('should return true for js types', () => {
-    expect(isJsType('Array')).to.eql(true)
-    expect(isJsType('Error')).to.eql(true)
-  })
+test('should return true for js types', t => {
+  t.truthy(isJsType('Array'))
+  t.truthy(isJsType('Error'))
+})
 
-  it('should be case sensitive', () => {
-    expect(isJsType('array')).to.eql(false)
-    expect(isJsType('ARRAY')).to.eql(false)
-  })
+test('should be case sensitive', t => {
+  t.falsy(isJsType('array'))
+  t.falsy(isJsType('ARRAY'))
 })
